@@ -6,6 +6,7 @@ setInterval(() => {
   innerHeight--
 }, 100)
 
+// Necessário quebrar o listener em funções isoladas.
 form.addEventListener('submit', event => {
   event.preventDefault()
 
