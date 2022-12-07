@@ -6,17 +6,23 @@ setInterval(() => {
   innerHeight--
 }, 100)
 
+const getUserAnswers = () => {
+  const userAnswers = []
+
+  correctAnswers.forEach((answer, index) => {
+    userAnswers.push(form[`inputQuestion${index + 1}`].value)
+  })
+  
+  return userAnswers
+}
+
+// Função precisa ser quebrada em partes.
 form.addEventListener('submit', event => {
   event.preventDefault()
 
   let userScore = 0
 
-  const userAnswers = [
-    form.inputQuestion1.value,
-    form.inputQuestion2.value,
-    form.inputQuestion3.value,
-    form.inputQuestion4.value
-  ]
+  const userAnswers = getUserAnswers()
 
   userAnswers.forEach((answer, index) => {
     if (answer === correctAnswers[index]) {
