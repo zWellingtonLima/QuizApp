@@ -1,6 +1,6 @@
 const form = document.querySelector('.quiz-form');
 const correctAnswers = ['A', 'C', 'A', 'B']
-const finalResult = document.querySelector('.result');
+const finalResultContainer = document.querySelector('.result');
 let userScore = 0
 
 setInterval(() => {
@@ -27,26 +27,31 @@ const calculateUserScore = userAnswers => {
   return userScore
 }
 
-// Função precisa ser quebrada em partes.
-form.addEventListener('submit', event => {
-  event.preventDefault()
-
-  const userAnswers = getUserAnswers()
-
-  calculateUserScore(userAnswers)
-
+const showUserScore = () => {
   scrollTo(0,0)
 
-  finalResult.classList.remove('d-none')
+  finalResultContainer.classList.remove('d-none')
+}
 
+const animateUserScore = () => {
   let counter = 0
   const timer = setInterval(() => {
     if (counter === userScore) {
       clearInterval(timer)
     }
 
-    finalResult.querySelector('span').textContent = `${counter}%`
+    finalResultContainer.querySelector('span').textContent = `${counter}%`
     counter++
   }, 15)
+}
+
+form.addEventListener('submit', event => {
+  event.preventDefault()
+
+  const userAnswers = getUserAnswers()
+
+  calculateUserScore(userAnswers)
+  showUserScore()
+  animateUserScore()
 })
 
