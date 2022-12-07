@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   <title>QuizTime | Corpo Humano</title>
 </head>
 <body class="bg-primary" style="background-color: #6610f2;">
   <!-- Introdução -->
-  <!-- <div class="intro">
+  <div class="intro">
     <div class="container text-center">
-      <h2 class="display-2 text-light my-4 ">QuizTime</h2>
-      <img src="img/choose.png" alt="QuizLogo" width="40%">
+      <h2 class="font-special bigger-font text-light my-4 py-3">QuizTime</h2>
+      <img src="img/choose.png" alt="QuizLogo" width="20%" class="py-3">
       <p class="h3 text-light  py-4">Descubra 4 curiosidades sobre o corpo humano. Faça o Quiz!</p> 
-      <button class="btn px-5 bg-warning btn-lg">Começar!</button>
+      <button data-initialButton="btn" class="btn font-special px-4 bg-warning btn-lg">Começar!</button>
     </div>
-  </div> -->
+  </div>
 
 <!-- Perguntas -->
-  <div class="container text-center">
+  <div id="questions" class="py-5 container text-center">
     
   </div>
 
+<script src="quizAnimations.js"></script>
 
   <!-- 
   <div class="intro py-3 bg-primary text-center">
@@ -162,6 +164,6 @@
     </div>
   </div> -->
 
-  <script src="./app.js"></script>
+  <!-- <script src="./app.js"></script> -->
 </body>
 </html>

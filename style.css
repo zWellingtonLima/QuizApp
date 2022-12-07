@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
+.font-special {
+  font-family: 'Bowlby One SC', cursive;
+}
+
+.bigger-font {
+  font-size: 5rem;
+}
+
+body{
+  height: 200vh;
+}
