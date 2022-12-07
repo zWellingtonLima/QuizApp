@@ -7,17 +7,8 @@ setInterval(() => {
   innerHeight--
 }, 100)
 
-const getUserAnswers = () => {
-  const userAnswers = []
-  
-  correctAnswers.forEach((_, index) => {
-    const userAnswer = form[`inputQuestion${index + 1}`].value
+const getUserAnswers = () => correctAnswers.map((_, index) => form[`inputQuestion${index + 1}`].value)  
 
-    userAnswers.push(userAnswer)
-  })
-
-  return userAnswers
-}
 
 const calculateUserScore = userAnswers => {
   userAnswers.forEach((answer, index) => {
