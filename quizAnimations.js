@@ -3,5 +3,5 @@ const introPage = document.querySelector('.intro');
 
 
 initialButton.addEventListener('click', () => {
-  // introPage.classList.add('d-none')
+  // introPage.classList.add('d-none') 
 })
