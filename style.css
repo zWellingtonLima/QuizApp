@@ -8,6 +8,29 @@
   font-size: 5rem;
 }
 
-/* body{
-  height: 200vh;
-} */
+#questions {
+  max-height: 90%;
+}
+
+.color-indigo {
+  background: linear-gradient(#5a267c, #451268) ;
+}
+
+.d-block{
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.option:hover{
+  background: linear-gradient(#874caf, #621b91);
+}
+

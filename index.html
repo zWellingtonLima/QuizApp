@@ -7,23 +7,60 @@
   <link rel="stylesheet" href="style.css">
   <title>QuizTime | Corpo Humano</title>
 </head>
-<body style="background-color: #6610f2;">
+<body style="background-color: #300c69;">
   <!-- Introdução -->
-  <div class="intro">
+  <!-- <div class="intro">
     <div class="container text-center">
       <h2 class="font-special bigger-font text-light my-4 py-3">QuizTime</h2>
-      <img src="img/choose.png" alt="QuizLogo" width="20%" class="py-3">
-      <p class="h3 text-light py-4">Descubra 4 curiosidades sobre o corpo humano. Faça o Quiz!</p> 
+      <img src="img/quiz.svg" alt="QuizLogo" width="30%" class="py-3">
+      <p class="h3 text-light py-2 mb-4">Descubra 4 curiosidades sobre o corpo humano. Faça o Quiz!</p> 
       <button data-initialButton="btn" class="btn font-special px-4 bg-warning btn-lg">Começar!</button>
+    </div>
+  </div> -->
+
+<!-- Perguntas -->
+  <div id="questions" class="container-xl mt-5">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-6 ">
+        <img src="./img/test.svg" alt="" class="img-fluid" width="90%">
+      </div>
+      <div class="col-6 text-light">
+        <form class="quiz-form ml-5">
+          <div class="font-weight-bold">
+            <p class="mb-4 h2">
+              1. Quem tem mais ossos no corpo humano:
+            </p>
+            <div class="d-block option btn color-indigo text-white mb-3">
+              <button type="radio" name="inputQuestion1" id="q1a" value="A" checked>
+              <label for="q1a">
+                Bebê
+              </label>
+            </div>
+            <div class="d-block p-1 option btn color-indigo text-white mb-3">
+              <button type="radio" name="inputQuestion1" id="q1b" value="B">
+              <label for="q1b">
+                Adolescente
+              </label>
+            </div>
+            <div class="d-block p-1 option btn color-indigo text-white mb-3">
+              <button type="radio" name="inputQuestion1" id="q1c" value="C">
+              <label for="q1c">
+                Adulto
+              </label>
+            </div>
+            <div class="d-block p-1 option btn color-indigo text-white mb-3">
+              <button type="radio" name="inputQuestion1" id="q1d" value="D">
+              <label for="q1d">
+                Idoso
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
-<!-- Perguntas -->
-  <div id="questions" class="py-5 container text-center">
-    
-  </div>
-
-<script src="quizAnimations.js"></script>
+<!-- <script src="quizAnimations.js"></script> -->
 
   <!-- 
   <div class="intro py-3 bg-primary text-center">
