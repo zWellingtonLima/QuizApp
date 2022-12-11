@@ -1,6 +1,7 @@
 const form = document.querySelector('.quiz-form');
 const correctAnswers = ['A', 'C', 'A', 'B']
 const finalResult = document.querySelector('.result');
+let userScore = 0
 
 setInterval(() => {
   innerHeight--
@@ -10,7 +11,6 @@ setInterval(() => {
 form.addEventListener('submit', event => {
   event.preventDefault()
 
-  let userScore = 0
 
   const userAnswers = [
     form.inputQuestion1.value,
