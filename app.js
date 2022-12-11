@@ -7,17 +7,21 @@ setInterval(() => {
   innerHeight--
 }, 100)
 
-// Necessário quebrar o listener em funções isoladas.
-form.addEventListener('submit', event => {
-  event.preventDefault()
-
-
+const getUserAnswers = (userAnswer) => {
   const userAnswers = [
     form.inputQuestion1.value,
     form.inputQuestion2.value,
     form.inputQuestion3.value,
     form.inputQuestion4.value
   ]
+  return userAnswer
+}
+
+// Necessário quebrar o listener em funções isoladas.
+form.addEventListener('submit', event => {
+  event.preventDefault()
+
+  const userAnswers = getUserAnswers()
 
   userAnswers.forEach((answer, index) => {
     if (answer === correctAnswers[index]) {
