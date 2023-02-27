@@ -8,155 +8,138 @@
   <title>Quiz | Corpo Humano</title>
 </head>
 <body>
-  <h1 class="quiz-title">Quiz</h1>
-  <section class="container">
-    <main class="questions-container">
+  <div class="question-board-container">
+    <div class="question-outside-container">
+      <div class="question-inside-container">
+        <div class="question-box">
+          <div class="decoration"><img src="./img/laço.png" alt="Decoração: laço verde."></div>
+          <p class="question">Quem tem mais ossos no corpo humano?</p>
+          <p class="question hidden">Qual o órgão mais pesado do corpo humano?</p>
+          <p class="question hidden">Quais são, respectivamente, o menor e maior osso do corpo humano?</p>
+          <p class="question hidden">Quais as duas partes do corpo que nunca param de crescer?</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    </main>
+  <div class="answer-container">
+    <div class="answer-box">
+      <div class="answer">
+        <form class="quiz-form-container">
+          <section class="question-1 quiz-form">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion1" value="A">
+                Recém-nascido
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion1" value="B">
+                Adolescente
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion1" value="C">
+                Adulto
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion1" value="D">
+                Idoso
+              </label>
+            </div>
+          </section>
+
+          <section class="question-2 quiz-form hidden">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion2" value="A">
+                Coração
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion2" value="B">
+                Fígado
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion2" value="C">
+                Pele
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion2" value="D">
+                Pulmão
+              </label>
+            </div>
+          </section>
+
+          <section class="question-3 quiz-form hidden">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion3" value="A">
+                Estribo e Fêmur
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion3" value="B">
+                Apêndice Xifóide e Sacro
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion3" value="C">
+                Fêmur e Clavícula
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion3" value="D">
+                Úmero e Fíbula
+              </label>
+            </div>  
+          </section>
+
+          <section class="question-4 quiz-form hidden">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion4" value="A">
+                Cabelo e Unhas
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion4" value="B">
+                Orelhas e Nariz
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion4" value="C">
+                Órgãos e Pés
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="inputQuestion4" value="D">
+                Nariz e Ossos
+              </label>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <section class="next-question">
+    
   </section>
 </body>
-
-
-
-<!-- <body>
-  <div class="intro py-3 bg-primary text-center">
-    <div class="container">
-      <h2 class="text-light display-3 my-4">QuizTime</h2>
-    </div>
-  </div>
-
-<div class="final-score-container py-4 d-none bg-light text-center">
-  <div class="container lead">
-    <p> Você acertou 
-      <span class="text-primary display-4 p-3">0%</span> do quiz!
-    </p>
-  </div>
-</div>
-
-  <div class="quiz py-4 bg-dark">
-    <div class="container">
-      <h2 class="my-5 text-white">Descubra 4 curiosidades sobre o corpo humano através do Quiz! </h2>
-
-      <form class="quiz-form text-light">
-        <div class="my-5">
-          <p class="lead font-weight-normal">1 - Quem tem mais ossos no corpo humano</p>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion1" value="A" checked>
-              Recém-nascido
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion1" value="B">
-              Adolescente
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion1" value="C">
-              Adulto
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion1" value="D">
-              Idoso
-            </label>
-          </div>
-        </div>
-
-        <div class="my-5">
-          <p class="lead font-weight-normal">2. Qual o órgão mais pesado do corpo humano?</p>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion2" value="A" checked>
-              Coração
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion2" value="B">
-              Fígado
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion2" value="C">
-              Pele
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion2" value="D">
-              Pulmão
-            </label>
-          </div>
-        </div>
-
-        <div class="my-5">
-          <p class="lead font-weight-normal">3. Quais são, respectivamente, o menor e maior osso do corpo humano?</p>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion3" value="A" checked>
-              Estribo e Fêmur
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion3" value="B">
-              Apêndice Xifóide e Sacro
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion3" value="C">
-              Fêmur e Clavícula
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion3" value="D">
-              Úmero e Fíbula
-            </label>
-          </div>
-        </div>
-
-        <div class="my-5">
-          <p class="lead font-weight-normal">4. Quais as duas partes do corpo que nunca param de crescer?</p>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion4" value="A" checked>
-              Cabelo e Unhas
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion4" value="B">
-              Orelhas e Nariz
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion4" value="C">
-              Órgãos e Pés
-            </label>
-          </div>
-          <div class="form-check my-2 text-white-50">
-            <label class="form-check-label">
-              <input type="radio" name="inputQuestion4" value="D">
-              Nariz e Ossos
-            </label>
-          </div>
-        </div>
-        
-        <div class="text-center">
-          <button class="btn bg-primary text-light">Enviar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script src="./app.js"></script>
-</body> -->
 </html>
