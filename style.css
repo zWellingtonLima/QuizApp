@@ -26,7 +26,6 @@
 
 html {
   font-size: 62.5%;
-  height: 100%;
 }
 
 body {
@@ -36,12 +35,21 @@ body {
 }
 
 .question-board-container {
-  margin-top: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  margin: 6rem 6rem 0 6rem;
   /* animation: slideIn 1s cubic-bezier(.67,0,.51,1.34); */
+}
+
+.title {
+  position: absolute;
+  top: -6rem;
+  font-size: 9rem;
+  font-weight: bold;
+  color: rgb(221, 221, 221);
+  text-shadow: 2px 2px 3px black;
 }
 
 .question-outside-container {
@@ -51,58 +59,26 @@ body {
   background-color: var(--outside-board);
   border-radius: 4rem;
   border: .6rem solid var(--border-board);
-  height: 50rem;
-  width: 80rem;
+  /* height: 50rem; */
+  padding: 4rem;
+  max-width: 100rem;
 }
 
 .question-inside-container {
   border-radius: 1rem;
   border: .6rem solid var(--border-board);
-  height: 40rem;
-  max-width: 70rem;
+  /* height: 40rem; */
+  /* max-width: 70rem; */
   background-color: var(--questions-board);
-  position: relative;
 }
-
-.decoration {
-  display: block;
-  position: absolute;
-  top: -35%;
-  transform: scale(1.15);
-  z-index: 1;
-  margin: 0 auto;
-}
-
-.decoration img {
-  display: block;
-  width: 100%;
-}
-
-/* .question-inside-container::before {
-  content: url('./img/laço.png');
-  width: 10rem;
-  height: 10rem;
-  position: absolute;
-  top: -14rem;
-  transform: scale(1.4);
-  left: 5rem;
-}
-
-.question-inside-container::after {
-  content: "Perguntas";
-  font-size: 10rem;
-  position: absolute;
-  top: -8rem;
-  left: 14rem;
-  color: white;
-  font-weight: bold;
-} */
 
 .question-box {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 4rem;
+  /* position: relative; */
 }
 
 .question {
@@ -127,6 +103,7 @@ body {
 
 .quiz-form-container {
   max-width: 100rem;
+  margin: 0 auto;
   margin-left: 10rem;
 }
 
@@ -217,4 +194,142 @@ input[type="radio"]:checked::before {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 1000px) {
+  .answer-container {
+    font-size: 4.5rem;
+  }
+  .question-board-container {
+    margin-bottom: 0;
+  }
+
+  .question-outside-container {
+    padding: 3rem;
+  }
+
+  .question {
+    font-size: 5.5em;
+  }
+
+  .question-box {
+    padding: 3rem 2rem;
+  }
+
+  .quiz-form {
+    grid-template-columns: repeat(1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .title {
+    font-size: 7.5rem;
+    top: -4rem;
+  }
+
+  .answer-container {
+    font-size: 3.8rem;
+  }
+
+  .question {
+    font-size: 4.5em;
+  }
+
+  .question-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .quiz-form {
+    grid-template-columns: repeat(1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 7.5rem;
+    top: -4rem;
+  }
+
+  .answer-container {
+    font-size: 4.2rem;
+  }
+
+  .question-board-container {
+    margin: 6rem 3rem -3rem 3rem;
+  }
+
+  .question-outside-container {
+    padding: 2.5rem;
+  }
+
+  .question {
+    font-size: 4.5em;
+    padding: 2rem 1rem;
+  }
+
+  .question-box {
+    padding: 2rem 1rem;
+  }
+
+  .quiz-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 6.5rem;
+    top: -4rem;
+  }
+
+  .question-board-container {
+    margin: 6rem 2rem -3rem 2rem;
+  }
+
+  .question-outside-container {
+    padding: 2rem;
+  }
+
+  .question {
+    font-size: 4rem;
+    padding: 1.7rem;
+  }
+
+  .question-box {
+    padding: 1rem .5rem;
+  }
+
+  .answer-container {
+    font-size: 3.5rem;
+  }
+
+  input[type="radio"]::before {
+    width: 7.2rem;
+    height: 6.2rem;
+    left: -10rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 5.8rem;
+    top: -3rem;
+  }
+
+  .question-board-container {
+    margin: 6rem 2rem -3rem 2rem;
+  }
+
+  .question {
+    font-size: 3.5rem;
+    padding: 1.7rem;
+  }
+
+  .question-box {
+    padding: 1rem .5rem;
+  }
+
+  .answer-container {
+    font-size: 3rem;
+  }
 }
