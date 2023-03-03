@@ -101,7 +101,7 @@ body {
   padding: 1.5rem;
   text-align: center;
   font-weight: bold;
-  /* animation: showUp 2s ease 1s; */
+  animation: showUp 2s ease 1s;
   animation-fill-mode: backwards;
   text-shadow: 3px 2px 2px white;
 }
@@ -153,7 +153,7 @@ body {
   position: relative;
   text-align: center;
 
-  /* animation: showUp 3s ease calc(var(--order) * 450ms); */
+  animation: showUp 3s ease calc(var(--order) * 450ms);
   animation-fill-mode: backwards;
 }
 
@@ -207,7 +207,7 @@ input[type="radio"]:checked::before {
 
 .next-question svg{
   transition: all .5s ease;
-  /* animation: showUp 2s ease 6s backwards; */
+  animation: showUp 2s ease 6s backwards;
   background-color: transparent;
   top: -1rem;
   right: 2%;
