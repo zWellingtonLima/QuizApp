@@ -5,18 +5,20 @@ const answerContainer = document.querySelector('.answer')
 const questionsBoardContainer = document.querySelector('.question-board-container')
 const svgPath = document.querySelector('path')
 const finishBtn = document.querySelector('[data-finish="sendQuestions"]')
+const finalMessage = document.querySelector('.goodbye')
 const questionsLength = 4
 const correctAnswers = ['A', 'C', 'A', 'B']
 
 const getUserAnswers = () => {
   let userAsnwers = []
   
-  console.log(form.inputQuestion1.value)
+  correctAnswers.forEach((_, index) => {
+    userAsnwers.push(form[`inputQuestion${index + 1}`].value)
+  })
   
   return userAsnwers
 }
 
-const getInputsQuestion = questionNumber => document.querySelectorAll(`[name="inputQuestion${questionNumber}"]`)
 
 answerContainer.addEventListener('click', e => {
   //Insere true na opção clicada
@@ -68,30 +70,52 @@ nextQuestionBtn.addEventListener('click', () => {
       currentQuestionAnswers.nextElementSibling.classList.remove('hidden')
     }    
     
-
     nextQuestionBtn.setAttribute('disabled', 'true')
     svgPath.style.fill = '#66472f'
     svgPath.style.animation = 'showUp 2s ease 6s backwards'
   
-
   if (counterQuestion > questionsLength) {
     finishBtn.removeAttribute('disabled')
     finishBtn.classList.remove('hidden')
-    questionsBoardContainer.querySelector('.goodbye').textContent = 'Parabéns! Aperte abaixo para ver sua pontuação.'
+    finalMessage.classList.remove('hidden')
+    // questionsBoardContainer.querySelector('.goodbye').classList.remove('hidden')
+    // questionsBoardContainer.querySelector('.goodbye').textContent = ''
     questionsBoardContainer.querySelector('.title').textContent = ''
     nextQuestionBtn.classList.add('hidden')
+    form.style.marginLeft = 0
   }
-  
 })
+
+let score = 0
+
+const calculateUserScore = userAnswers => {
+  userAnswers.forEach((userAnswer, index) => {
+    if (userAnswer === correctAnswers[index]) {
+      score += 25
+    }
+  })
+}
+
+const animateFinalScore = () => {
+  let counter = 0
+  const timer = setInterval(() => {
+    if (counter === score) {
+      clearInterval(timer)
+    }
+
+    finalMessage.textContent = `${counter}%`
+    counter++
+  }, 15);
+}
 
 form.addEventListener('submit', e => {
   e.preventDefault()
+  finishBtn.setAttribute('disabled', 'true')
+  // Obtém as respostas do user
+  const userAnswers = getUserAnswers()
+  
+  calculateUserScore(userAnswers)
 
-  console.log(form.inputQuestion1.value);
+  animateFinalScore()
+
 })
-
-
-
-
-// console.log(input.checked)
-// console.log(input.getAttribute('value'))
