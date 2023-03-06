@@ -6,8 +6,13 @@ const questionsBoardContainer = document.querySelector('.question-board-containe
 const svgPath = document.querySelector('path')
 const finishBtn = document.querySelector('[data-finish="sendQuestions"]')
 const finalMessage = document.querySelector('.goodbye')
+const plusMessage = document.querySelector('.plus-message')
+
 const questionsLength = 4
 const correctAnswers = ['A', 'C', 'A', 'B']
+
+let counterQuestion = 1
+let counterQuestionAnswer = 1
 
 const getUserAnswers = () => {
   let userAsnwers = []
@@ -19,71 +24,50 @@ const getUserAnswers = () => {
   return userAsnwers
 }
 
-answerContainer.addEventListener('click', e => {
-  //Insere true na opção clicada
-  const input = e.target.querySelector('input')
-  if (input) {
-    input.setAttribute('checked', 'true')
-  }
 
-  //Remove o disabled do nextQuestionBtn
-  nextQuestionBtn.removeAttribute('disabled')
+const hideCurrentQuestionAndShowNext = () => {
+  const currentQuestion = document.querySelector(`.question-${counterQuestion}`)
+  const nextQuestion = currentQuestion.nextElementSibling
+  const shouldHideCurrentQuestion = !currentQuestion.classList.contains('hidden')
+  const showNextQuestionIfExists = counterQuestion <= questionsLength
 
-  // Altera a cor do SVG depois de remover o disabled
-  svgPath.style.fill = '#f78002'
-  svgPath.style.animation = ''
+  shouldHideCurrentQuestion ? currentQuestion.classList.add('hidden') : ''
 
-})
+  counterQuestion++
 
-let counterQuestion = 1
-let counterQuestionAnswer = 1
+  showNextQuestionIfExists ? nextQuestion.classList.remove('hidden') : ''
+}
 
-nextQuestionBtn.addEventListener('click', () => {
-    // Questions
-    const currentQuestion = document.querySelector(`.question-${counterQuestion}`)
-    const nextQuestion = currentQuestion.nextElementSibling
+const hideCurrentAnswersAndShowNext = () => {
+  const currentQuestionAnswers = document.querySelector(`.question-answer-${counterQuestionAnswer}`)
+  const shouldHideCurrentAnswers = !currentQuestionAnswers.classList.contains('hidden')
+  const nextAnswers = currentQuestionAnswers.nextElementSibling
+  const showNextAnswersIfExists = nextAnswers.classList.contains(`question-answer-${++counterQuestionAnswer}`)
 
-    if (!currentQuestion.classList.contains('hidden')) {
-      currentQuestion.classList.add('hidden')
+  shouldHideCurrentAnswers ? currentQuestionAnswers.classList.add('hidden') : ''
 
-    }
+  showNextAnswersIfExists ? nextAnswers.classList.remove('hidden') : ''
+}
 
-    counterQuestion++
+const disableNextQuestionBtn = () => {
+  nextQuestionBtn.setAttribute('disabled', 'true')
 
-    if (counterQuestion <= 4) {
-      nextQuestion.classList.remove('hidden')
-    }
+  svgPath.style.fill = '#66472f'
+  svgPath.style.animation = 'showUp 2s ease 5s backwards'
+}
 
-    // if (nextQuestion.classList.contains(`question-${counterQuestion}`)) {
-    //   currentQuestion.nextElementSibling.classList.remove('hidden')
-    // } 
+const handleActivateFinishBtnQuiz = () => {
+  finishBtn.removeAttribute('disabled')
+  finishBtn.classList.remove('hidden')
 
-    //Answers
-    const currentQuestionAnswers = document.querySelector(`.question-answer-${counterQuestionAnswer}`)
-  
-    if (!currentQuestionAnswers.classList.contains('hidden')) {
-      currentQuestionAnswers.classList.add('hidden')
-    }
+  finalMessage.classList.remove('hidden')
 
-    if (currentQuestionAnswers.nextElementSibling.classList.contains(`question-answer-${++counterQuestionAnswer}`)) {
-      currentQuestionAnswers.nextElementSibling.classList.remove('hidden')
-    }    
-    
-    nextQuestionBtn.setAttribute('disabled', 'true')
-    svgPath.style.fill = '#66472f'
-    svgPath.style.animation = 'showUp 2s ease 6s backwards'
-  
-  if (counterQuestion > questionsLength) {
-    finishBtn.removeAttribute('disabled')
-    finishBtn.classList.remove('hidden')
-    finalMessage.classList.remove('hidden')
-    // questionsBoardContainer.querySelector('.goodbye').classList.remove('hidden')
-    // questionsBoardContainer.querySelector('.goodbye').textContent = ''
-    questionsBoardContainer.querySelector('.title').textContent = ''
-    nextQuestionBtn.classList.add('hidden')
-    form.style.marginLeft = 0
-  }
-})
+  questionsBoardContainer.querySelector('.title').textContent = ''
+
+  nextQuestionBtn.classList.add('hidden')
+
+  form.style.marginLeft = 0
+}
 
 let score = 0
 
@@ -105,16 +89,55 @@ const animateFinalScore = () => {
     finalMessage.textContent = `${counter}%`
     counter++
   }, 15);
+
+  return counter
 }
+
+const renderUserScoreComparison = () => {
+  const userAnswers = getUserAnswers()
+
+  plusMessage.classList.remove('hidden')
+
+  plusMessage.textContent = `O gabarito é: ${correctAnswers.join(', ')} e suas respostas foram: ${userAnswers.join(', ')}.`
+}
+
+answerContainer.addEventListener('click', e => {
+  //Insere true na opção clicada
+  const input = e.target.querySelector('input')
+  
+  if (input) {
+    input.setAttribute('checked', 'true')
+  }
+
+  //Remove o disabled do nextQuestionBtn
+  nextQuestionBtn.removeAttribute('disabled')
+
+  // Altera a cor do SVG depois de remover o disabled
+  svgPath.style.fill = '#f78002'
+  svgPath.style.animation = ''
+})
+
+nextQuestionBtn.addEventListener('click', () => {
+  const lastQuestionReached = counterQuestion >= questionsLength
+
+  hideCurrentQuestionAndShowNext()
+  hideCurrentAnswersAndShowNext()   
+    
+  disableNextQuestionBtn()
+  
+  lastQuestionReached ? handleActivateFinishBtnQuiz() : ''
+})
 
 form.addEventListener('submit', e => {
   e.preventDefault()
+
   finishBtn.setAttribute('disabled', 'true')
-  // Obtém as respostas do user
+
   const userAnswers = getUserAnswers()
   
   calculateUserScore(userAnswers)
 
   animateFinalScore()
 
+  renderUserScoreComparison()
 })

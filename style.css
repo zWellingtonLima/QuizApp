@@ -31,7 +31,7 @@ button {
   --order: 4; */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap'); */
 
 html {
   font-size: 62.5%;
@@ -89,6 +89,7 @@ body {
 
 .question-box {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   /* height: 100%; */
@@ -256,6 +257,13 @@ path:active {
   box-shadow: inset 1.5rem 1.5rem .5rem gray, .7rem 1.7rem 1rem var(--question-answer-shades-color);
   background-color: rgb(95, 95, 95);
   color: gray;
+}
+
+.goodbye {
+  margin-top: .5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: .8rem solid rgba(255, 255, 255, .7);
 }
 
 @keyframes slideIn {
