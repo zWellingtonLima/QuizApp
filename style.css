@@ -35,13 +35,13 @@ button {
 
 html {
   font-size: 62.5%;
+  font-family: 'Tilt Warp', cursive;
 }
 
 body {
   /* height: 90vh; */
   box-sizing: border-box;
   color: var(--border-board);
-  font-family: 'Tilt Warp', cursive;;
   
   background-image: linear-gradient(to top, white, var(--background-color));
   background-image: url('./img/bg-image.jpg');

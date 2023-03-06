@@ -19,7 +19,6 @@ const getUserAnswers = () => {
   return userAsnwers
 }
 
-
 answerContainer.addEventListener('click', e => {
   //Insere true na opção clicada
   const input = e.target.querySelector('input')
